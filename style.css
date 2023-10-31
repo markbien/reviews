@@ -12,19 +12,24 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Roboto", sans-serif;
-  background-color: #F5F7F8;
+  background-color: #f5f7f8;
 }
 
 main {
   display: flex;
   flex-direction: column;
   position: relative;
+  top: -250px;
   text-align: center;
   width: clamp(300px, 50%, 700px);
   background-color: white;
 }
 
 .container {
+  position: relative;
+}
+
+.card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,6 +40,9 @@ main {
   -webkit-box-shadow: 0px -1px 5px 4px rgba(0, 0, 0, 0.21);
   -moz-box-shadow: 0px -1px 5px 4px rgba(0, 0, 0, 0.21);
   border-radius: 5px;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 2s ease;
 }
 
 .title-container {
@@ -42,7 +50,7 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  background-color: #F5F7F8;
+  background-color: #f5f7f8;
 }
 
 h1 {
@@ -76,7 +84,7 @@ h1 {
 
 .employee-position {
   text-transform: uppercase;
-  color: #6096B4;
+  color: #6096b4;
 }
 
 .background {
@@ -97,7 +105,7 @@ h1 {
 .arrows {
   height: 25px;
   cursor: pointer;
-  transition: .150s ease;
+  transition: 0.15s ease;
 }
 
 .arrows:hover {
@@ -108,7 +116,7 @@ h1 {
   transform: scale(1.1);
 }
 
-.container > button {
+.container button {
   background-color: #867070;
   border: 1px solid white;
   padding: 5px 10px;
@@ -116,9 +124,13 @@ h1 {
   font-size: 1rem;
   border-radius: 10px;
   cursor: pointer;
-  transition: .150s ease;
+  transition: 0.15s ease;
 }
 
-.container > button:active {
+.container button:active {
   transform: scale(1.1);
+}
+
+.show {
+  opacity: 1;
 }
