@@ -1,4 +1,4 @@
-const container = document.querySelector('.container');
+const container = document.querySelector(".container");
 
 function Employee(name, position, info, imagePath) {
   this.name = name;
@@ -7,7 +7,12 @@ function Employee(name, position, info, imagePath) {
   this.imagePath = imagePath;
 }
 
-function createCard(newEmployeeName, newEmployeePosition, newEmployeeInformation, imagePath){
+function createCard(
+  newEmployeeName,
+  newEmployeePosition,
+  newEmployeeInformation,
+  imagePath
+) {
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("image-container");
 
@@ -82,11 +87,26 @@ const krab = new Employee(
   "Lead Programmer",
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea autem vitae, eligendi possimus dignissimos nostrum, sit, cum facere id aut maiores odio natus obcaecati nulla! Aspernatur nemo distinctio cum eveniet!",
   "images/krab.jpeg"
-)
+);
 
-const spongebob_card = createCard(spongebob.name, spongebob.position, spongebob.info, "images/spongebob.jpeg");
-const patrick_card = createCard(patrick.name, patrick.position, patrick.info, "images/patrick.jpeg");
-const krab_card = createCard(krab.name, krab.position, krab.info, "images/krab.jpeg");
+const spongebob_card = createCard(
+  spongebob.name,
+  spongebob.position,
+  spongebob.info,
+  "images/spongebob.jpeg"
+);
+const patrick_card = createCard(
+  patrick.name,
+  patrick.position,
+  patrick.info,
+  "images/patrick.jpeg"
+);
+const krab_card = createCard(
+  krab.name,
+  krab.position,
+  krab.info,
+  "images/krab.jpeg"
+);
 
 cardArray.push(spongebob_card);
 cardArray.push(patrick_card);
@@ -97,4 +117,17 @@ for (let i = 0; i < cardArray.length; i++) {
   container.appendChild(cardArray[i]);
 }
 
-let currentCardShown = 0;
+let currentCardShown = 2;
+
+function toggleShowClass(currentCardShown) {
+  for (let i = 0; i < cardArray.length; i++) {
+    const current_id = cardArray[i].getAttribute("id");
+    if (current_id === `card_${currentCardShown}`) {
+      cardArray[i].classList.add("show");
+    } else {
+      cardArray[i].classList.remove("show");
+    }
+  }
+}
+
+toggleShowClass(2);
