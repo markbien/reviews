@@ -61,7 +61,7 @@ function createCard(
 
 const spongebob = new Employee(
   "Spongebob",
-  "Wev Developer",
+  "Front End Developer",
   "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis incidunt atque ea sunt iusto quae recusandae, asperiores alias nobis laborum dolore, quia aliquid in officiis perferendis et harum, saepe nostrum.",
   "images/spongebob.jpeg"
 );
@@ -78,16 +78,31 @@ const krab = new Employee(
   "images/krab.jpeg"
 );
 
+const squidward = new Employee(
+  "Squidward",
+  "Back End Developer",
+  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis incidunt atque ea sunt iusto quae recusandae, asperiores alias nobis laborum dolore, quia aliquid in officiis perferendis et harum, saepe nostrum.",
+  "images/squidward.jpeg"
+)
+
+const sandy = new Employee(
+  "Sandy",
+  "Back End Developer",
+  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis incidunt atque ea sunt iusto quae recusandae, asperiores alias nobis laborum dolore, quia aliquid in officiis perferendis et harum, saepe nostrum.",
+  "images/sandy.png"
+)
+
 spongebob.createOwnCardAndPushToArray();
 patrick.createOwnCardAndPushToArray();
 krab.createOwnCardAndPushToArray();
+squidward.createOwnCardAndPushToArray();
+sandy.createOwnCardAndPushToArray();
 
 function loadEmployeesToPage(){
   cardArray.forEach(card =>{
     container.appendChild(card);
   })
 }
-loadEmployeesToPage();
 
 let currentCardShown = 0;
 
@@ -102,17 +117,15 @@ function toggleShowClass(currentCardShown) {
   }
 }
 
-toggleShowClass(0);
-
 function previousCard(){
   currentCardShown--;
-  if (currentCardShown < 0) currentCardShown = 2;
+  if (currentCardShown < 0) currentCardShown = cardArray.length - 1;
   toggleShowClass(currentCardShown);
 }
 
 function nextCard(){
   currentCardShown++;
-  if (currentCardShown > 2) currentCardShown = 0;
+  if (currentCardShown > (cardArray.length - 1)) currentCardShown = 0;
   toggleShowClass(currentCardShown);
 }
 
@@ -124,3 +137,7 @@ function randomizeCard(){
 leftButton.addEventListener('click', previousCard);
 rightButton.addEventListener('click', nextCard);
 randomButton.addEventListener('click', randomizeCard);
+
+// Start the program
+loadEmployeesToPage();
+toggleShowClass(0);
