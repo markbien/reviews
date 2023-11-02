@@ -27,6 +27,7 @@ main {
 
 .container {
   position: relative;
+  background-color: #f5f7f8;
 }
 
 .card {
@@ -98,7 +99,13 @@ h1 {
 }
 
 .page-controls {
+  position: fixed;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  bottom: 50px;
+  left: 50%;
+  right: 50%;
   gap: 20px;
 }
 
@@ -116,7 +123,15 @@ h1 {
   transform: scale(1.1);
 }
 
-.container button {
+.left {
+  order: 1;
+}
+
+.right {
+  order: 3;
+}
+
+.page-controls button {
   background-color: #867070;
   border: 1px solid white;
   padding: 5px 10px;
@@ -125,9 +140,10 @@ h1 {
   border-radius: 10px;
   cursor: pointer;
   transition: 0.15s ease;
+  order: 2;
 }
 
-.container button:active {
+.page-controls button:active {
   transform: scale(1.1);
 }
 

@@ -1,4 +1,7 @@
 const container = document.querySelector(".container");
+const leftButton = document.querySelector(".left");
+const rightButton = document.querySelector(".right");
+const randomButton = document.querySelector(".page-controls button");
 
 function Employee(name, position, info, imagePath) {
   this.name = name;
@@ -38,23 +41,6 @@ function createCard(
   employeeInformation.classList.add("employee-information");
   employeeInformation.textContent = newEmployeeInformation;
 
-  const pageControls = document.createElement("div");
-  pageControls.classList.add("page-controls");
-
-  const leftButton = document.createElement("img");
-  leftButton.src = "images/chevron-left-solid.svg";
-  leftButton.classList.add("arrows");
-
-  const rightButton = document.createElement("img");
-  rightButton.src = "images/chevron-right-solid.svg";
-  rightButton.classList.add("arrows");
-
-  pageControls.appendChild(leftButton);
-  pageControls.appendChild(rightButton);
-
-  const surpriseMeButton = document.createElement("button");
-  surpriseMeButton.textContent = "Surprise me!";
-
   const card = document.createElement("div");
   card.classList.add("card");
 
@@ -62,8 +48,6 @@ function createCard(
   card.appendChild(employeeName);
   card.appendChild(employeePosition);
   card.appendChild(employeeInformation);
-  card.appendChild(pageControls);
-  card.appendChild(surpriseMeButton);
 
   return card;
 }
@@ -117,7 +101,7 @@ for (let i = 0; i < cardArray.length; i++) {
   container.appendChild(cardArray[i]);
 }
 
-let currentCardShown = 2;
+let currentCardShown = 0;
 
 function toggleShowClass(currentCardShown) {
   for (let i = 0; i < cardArray.length; i++) {
@@ -130,4 +114,25 @@ function toggleShowClass(currentCardShown) {
   }
 }
 
-toggleShowClass(2);
+toggleShowClass(0);
+
+function previousCard(){
+  currentCardShown--;
+  if (currentCardShown < 0) currentCardShown = 2;
+  toggleShowClass(currentCardShown);
+}
+
+function nextCard(){
+  currentCardShown++;
+  if (currentCardShown > 2) currentCardShown = 0;
+  toggleShowClass(currentCardShown);
+}
+
+function randomizeCard(){
+  const randomVal = Math.floor(Math.random() * cardArray.length);
+  toggleShowClass(randomVal);
+}
+
+leftButton.addEventListener('click', previousCard);
+rightButton.addEventListener('click', nextCard);
+randomButton.addEventListener('click', randomizeCard);
