@@ -10,7 +10,7 @@ function Employee(name, position, info, imagePath) {
   this.info = info;
   this.imagePath = imagePath;
   this.createOwnCardAndPushToArray = function(){
-    const currentCard = createCard(this.name, this.position, this.info, this.imagePath);
+    const currentCard = createCard(this.name, this.position, this.info, this.imagePath, cardArray.length);
     cardArray.push(currentCard);
   }
 }
@@ -19,7 +19,8 @@ function createCard(
   newEmployeeName,
   newEmployeePosition,
   newEmployeeInformation,
-  imagePath
+  imagePath,
+  idToBeAssigned
 ) {
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("image-container");
@@ -48,6 +49,7 @@ function createCard(
 
   const card = document.createElement("div");
   card.classList.add("card");
+  card.setAttribute("id", `card_${idToBeAssigned}`);
 
   card.appendChild(imageContainer);
   card.appendChild(employeeName);
@@ -80,10 +82,12 @@ spongebob.createOwnCardAndPushToArray();
 patrick.createOwnCardAndPushToArray();
 krab.createOwnCardAndPushToArray();
 
-for (let i = 0; i < cardArray.length; i++) {
-  cardArray[i].setAttribute("id", `card_${i}`);
-  container.appendChild(cardArray[i]);
+function loadEmployeesToPage(){
+  cardArray.forEach(card =>{
+    container.appendChild(card);
+  })
 }
+loadEmployeesToPage();
 
 let currentCardShown = 0;
 
