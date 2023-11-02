@@ -2,12 +2,17 @@ const container = document.querySelector(".container");
 const leftButton = document.querySelector(".left");
 const rightButton = document.querySelector(".right");
 const randomButton = document.querySelector(".page-controls button");
+const cardArray = [];
 
 function Employee(name, position, info, imagePath) {
   this.name = name;
   this.position = position;
   this.info = info;
   this.imagePath = imagePath;
+  this.createOwnCardAndPushToArray = function(){
+    const currentCard = createCard(this.name, this.position, this.info, this.imagePath);
+    cardArray.push(currentCard);
+  }
 }
 
 function createCard(
@@ -52,8 +57,6 @@ function createCard(
   return card;
 }
 
-const cardArray = [];
-
 const spongebob = new Employee(
   "Spongebob",
   "Wev Developer",
@@ -73,28 +76,9 @@ const krab = new Employee(
   "images/krab.jpeg"
 );
 
-const spongebob_card = createCard(
-  spongebob.name,
-  spongebob.position,
-  spongebob.info,
-  "images/spongebob.jpeg"
-);
-const patrick_card = createCard(
-  patrick.name,
-  patrick.position,
-  patrick.info,
-  "images/patrick.jpeg"
-);
-const krab_card = createCard(
-  krab.name,
-  krab.position,
-  krab.info,
-  "images/krab.jpeg"
-);
-
-cardArray.push(spongebob_card);
-cardArray.push(patrick_card);
-cardArray.push(krab_card);
+spongebob.createOwnCardAndPushToArray();
+patrick.createOwnCardAndPushToArray();
+krab.createOwnCardAndPushToArray();
 
 for (let i = 0; i < cardArray.length; i++) {
   cardArray[i].setAttribute("id", `card_${i}`);
