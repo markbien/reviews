@@ -90,21 +90,23 @@ article {
   background-color: var(--background);
   text-align: center;
   gap: 5px;
-
-  box-shadow: -1px 2px 5px 6px rgba(0,0,0,0.22);
--webkit-box-shadow: -1px 2px 5px 6px rgba(0,0,0,0.22);
--moz-box-shadow: -1px 2px 5px 6px rgba(0,0,0,0.22);
+  box-shadow: -1px 2px 5px 6px rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow: -1px 2px 5px 6px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: -1px 2px 5px 6px rgba(0, 0, 0, 0.22);
 }
 
 #employee-name {
   color: var(--title);
   margin-top: 25px;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
 }
 
 #employee-position {
   text-transform: uppercase;
-  color: var(--text);
-  font-size: 1.4rem;
+  color: var(--accent);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
 }
 
 #employee-info {
@@ -120,7 +122,6 @@ article {
 
 .page-controls > * {
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
 .page-controls > *:active {

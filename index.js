@@ -40,26 +40,26 @@ const rightBtn = document.querySelector("#right-button");
 const randomizeBtn = document.querySelector("#randomize-button");
 let currentIndex = 0;
 
-function changeDisplayedEmployee(index){
+function changeDisplayedEmployee(index) {
   image.src = employees[index].image;
   name.textContent = employees[index].name;
   position.textContent = employees[index].position;
   info.textContent = employees[index].info;
 }
 
-window.addEventListener("DOMContentLoaded", function(){
+window.addEventListener("DOMContentLoaded", function () {
   changeDisplayedEmployee(currentIndex);
 });
 
-rightBtn.addEventListener("click", function(){
+rightBtn.addEventListener("click", function () {
   currentIndex++;
-  if (currentIndex > (employees.length - 1)) {
+  if (currentIndex > employees.length - 1) {
     currentIndex = 0;
   }
   changeDisplayedEmployee(currentIndex);
 });
 
-leftBtn.addEventListener("click", function(){
+leftBtn.addEventListener("click", function () {
   currentIndex--;
   if (currentIndex < 0) {
     currentIndex = employees.length - 1;
@@ -67,7 +67,7 @@ leftBtn.addEventListener("click", function(){
   changeDisplayedEmployee(currentIndex);
 });
 
-randomizeBtn.addEventListener("click", function(){
+randomizeBtn.addEventListener("click", function () {
   const randNum = Math.floor(Math.random() * employees.length);
   changeDisplayedEmployee(randNum);
 });
