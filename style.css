@@ -43,12 +43,14 @@ article {
 main {
   width: clamp(300px, 70%, 1000px);
   gap: 40px;
+  margin: 10px;
 }
 
 #title {
   text-transform: capitalize;
   font-size: 2rem;
   font-family: 'Playfair Display', serif;
+  color: var(--title);
 }
 
 section .line {
@@ -85,15 +87,39 @@ article {
   color: var(--text);
   border-radius: 10px;
   background-color: var(--background);
+  text-align: center;
+  gap: 5px;
+}
+
+#employee-name {
+  color: var(--title);
+  margin-top: 25px;
+}
+
+#employee-position {
+  text-transform: uppercase;
+  color: var(--text);
+  font-size: 1.4rem;
+}
+
+#employee-info {
+  color: var(--text);
+  margin: 20px;
 }
 
 .page-controls {
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
 .page-controls > * {
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.page-controls > *:active {
+  transform: scale(0.9);
 }
 
 .page-controls > img {
@@ -111,4 +137,9 @@ article {
 
 .page-controls > button {
   order: 2;
+  background-color: var(--accent);
+  color: var(--background);
+  border: 1px solid var(--misc);
+  border-radius: 10px;
+  padding: 5px 15px;
 }
