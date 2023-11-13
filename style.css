@@ -13,6 +13,11 @@ img {
 
 body {
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.1);
+  font-family: 'PT Serif', serif;
 } 
 
 button {
@@ -25,4 +30,85 @@ button {
   --misc: #999999;
   --text: #444444;
   --title: #111111;
+}
+
+main,
+section,
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  width: clamp(300px, 70%, 1000px);
+  gap: 40px;
+}
+
+#title {
+  text-transform: capitalize;
+  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+}
+
+section .line {
+  width: 120px;
+  height: 3px;
+  background-color: var(--accent);
+  margin-top: 5px;
+  border-radius: 10px;
+}
+
+.photo {
+  position: relative;
+}
+
+.photo > img {
+  border-radius: 100%;
+  height: 200px;
+  position: relative;
+  z-index: 1;
+}
+
+.image-background {
+  position: absolute;
+  bottom: 3px;
+  left: 7px;
+  background-color: var(--accent);
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+}
+
+article {
+  padding: 25px 15px;
+  color: var(--text);
+  border-radius: 10px;
+  background-color: var(--background);
+}
+
+.page-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.page-controls > * {
+  cursor: pointer;
+}
+
+.page-controls > img {
+  height: 30px;
+  width: 30px;
+}
+
+.page-controls > img:nth-child(1) {
+  order: 1;
+}
+
+.page-controls > img:nth-child(2) {
+  order: 3;
+}
+
+.page-controls > button {
+  order: 2;
 }
